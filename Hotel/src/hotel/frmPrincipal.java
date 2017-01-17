@@ -19,6 +19,7 @@ public class frmPrincipal implements com.trolltech.qt.QUiForm<QMainWindow>
     public QWidget widget;
     public QVBoxLayout verticalLayout;
     public QPushButton pushButton_Reservas;
+    public QPushButton pushButton_SalonHabana;
     public QPushButton pushButton_Salir;
     public QMenuBar menubar;
     public QMenu menuAplicaci_n;
@@ -34,6 +35,13 @@ public class frmPrincipal implements com.trolltech.qt.QUiForm<QMainWindow>
         Alta.setupUi(dialog);
         dialog.show();
 
+    }
+    
+    void abrir2(){
+        frmReservaSalon Salon = new frmReservaSalon();
+        QDialog dialog = new QDialog();
+        Salon.setupUi(dialog);
+        dialog.show();
     }
 
     public void setupUi(QMainWindow MainWindow)
@@ -68,10 +76,14 @@ public class frmPrincipal implements com.trolltech.qt.QUiForm<QMainWindow>
         widget.setGeometry(new QRect(370, 30, 109, 95));
         verticalLayout = new QVBoxLayout(widget);
         verticalLayout.setObjectName("verticalLayout");
+        
         pushButton_Reservas = new QPushButton(widget);
         pushButton_Reservas.setObjectName("pushButton_Reservas");
+        pushButton_SalonHabana = new QPushButton(widget);
+        pushButton_SalonHabana.setObjectName("pushButton_Reservas");
 
         verticalLayout.addWidget(pushButton_Reservas);
+        verticalLayout.addWidget(pushButton_SalonHabana);
 
         pushButton_Salir = new QPushButton(widget);
         pushButton_Salir.setObjectName("pushButton_Salir");
@@ -104,6 +116,7 @@ public class frmPrincipal implements com.trolltech.qt.QUiForm<QMainWindow>
          * Al hacer clic en el botón Reservas se abre el dialogo de reservas.
          */
         pushButton_Reservas.clicked.connect(this, "abrir()");
+        pushButton_SalonHabana.clicked.connect(this, "abrir2()");
 
         MainWindow.connectSlotsByName();
     } // setupUi
@@ -115,6 +128,7 @@ public class frmPrincipal implements com.trolltech.qt.QUiForm<QMainWindow>
         actionReservas.setText(com.trolltech.qt.core.QCoreApplication.translate("MainWindow", "Reservas", null));
         label.setText("");
         pushButton_Reservas.setText(com.trolltech.qt.core.QCoreApplication.translate("MainWindow", "&Reservas", null));
+        pushButton_SalonHabana.setText(com.trolltech.qt.core.QCoreApplication.translate("MainWindow", "&Salon Habana", null));
         pushButton_Salir.setText(com.trolltech.qt.core.QCoreApplication.translate("MainWindow", "&Salir", null));
         menuAplicaci_n.setTitle(com.trolltech.qt.core.QCoreApplication.translate("MainWindow", "Aplicaci\u00f3n", null));
         menuGesti_n.setTitle(com.trolltech.qt.core.QCoreApplication.translate("MainWindow", "Gesti\u00f3n", null));
